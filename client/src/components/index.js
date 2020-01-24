@@ -1,5 +1,3 @@
-import Chat from './chat';
+import HocExample from './hoc-example';
 
-export {
-	Chat
-}
+export default HocExample;
