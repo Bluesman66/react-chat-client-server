@@ -1,0 +1,14 @@
+{
+  "name": "react-chat-client-server",
+  "version": "1.0.0",
+  "description": "chat client-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:client": "cd client && npm run start",
+    "start:server": "cd server && node app.js",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\""	
+  },
+  "author": "Alex Paclin (alex.paclin@gmail.com)",
+  "license": "ISC"
+}
