@@ -11,6 +11,8 @@ class HocChild extends Component {
 				<p>1 EUR = {parseFloat(currency.rates['USD']).toFixed(2)} USD</p>
 				<p>1 EUR = {parseFloat(currency.rates['RUB']).toFixed(2)} RUB</p>
 				<p>1 USD = {(1 / parseFloat(currency.rates['USD']) * parseFloat(currency.rates['RUB'])).toFixed(2)} RUB</p>
+				<br />
+				<p>Load time: {this.props.diffTime} s</p>
 			</div>
 		)
 	}

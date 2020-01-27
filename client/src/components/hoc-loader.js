@@ -4,6 +4,14 @@ import progress from './../assets/images/progress.gif';
 const hocLoader = (propName) => (loaderPath) => (ChildComponent) => {
 	return class extends Component {
 
+		componentDidMount = () => {
+			this.startTime = Date.now();
+		}
+
+		componentWillReceiveProps = () => {
+			this.endTime = Date.now();
+		}
+
 		propIsEmpty = () => {
 			const prop = this.props[propName];
 
@@ -14,7 +22,7 @@ const hocLoader = (propName) => (loaderPath) => (ChildComponent) => {
 		}
 
 		getPreloader = () => {
-			return !loaderPath ? progress : loaderPath; 
+			return loaderPath ? loaderPath : progress;
 		}
 
 		loadComponent = () => {
@@ -22,8 +30,12 @@ const hocLoader = (propName) => (loaderPath) => (ChildComponent) => {
 		}
 
 		render() {
+			const loadTime = {
+				diffTime: ((this.endTime - this.startTime) / 1000).toFixed(2)
+			}
+
 			return (
-				this.propIsEmpty() ? this.loadComponent() : <ChildComponent {...this.props} />
+				this.propIsEmpty() ? this.loadComponent() : <ChildComponent {...this.props} {...loadTime} />
 			)
 		}
 	}
