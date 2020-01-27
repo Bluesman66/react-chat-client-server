@@ -19,7 +19,7 @@ export default class HocExample extends Component {
 
 	render() {
 		return (
-			<div style={{ background: '#000', padding: 100 }}>
+			<div style={{ background: '#fff', color: '#000', padding: 100 }}>
 				<HocChild currency={this.state.currency} />
 			</div>
 		)

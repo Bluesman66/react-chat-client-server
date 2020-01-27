@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import progress from './../assets/images/progress.gif';
 
 const hocLoader = (propName) => (ChildComponent) => {
 	return class extends Component {
@@ -13,7 +14,7 @@ const hocLoader = (propName) => (ChildComponent) => {
 		}
 
 		loadComponent = () => {
-			return <div>LOADING...</div>;
+			return <div><img src={progress} alt="Loading..."></img> </div>;
 		}
 
 		render() {
