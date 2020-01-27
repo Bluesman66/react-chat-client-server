@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import progress from './../assets/images/progress.gif';
 
-const hocLoader = (propName) => (ChildComponent) => {
+const hocLoader = (propName) => (loaderPath) => (ChildComponent) => {
 	return class extends Component {
 
 		propIsEmpty = () => {
@@ -13,8 +13,12 @@ const hocLoader = (propName) => (ChildComponent) => {
 			return false;
 		}
 
+		getPreloader = () => {
+			return !loaderPath ? progress : loaderPath; 
+		}
+
 		loadComponent = () => {
-			return <div><img src={progress} alt="Loading..."></img> </div>;
+			return <div><img src={this.getPreloader()} alt="Loading..."></img> </div>;
 		}
 
 		render() {

@@ -16,4 +16,4 @@ class HocChild extends Component {
 	}
 }
 
-export default hocLoader('currency')(HocChild);
+export default hocLoader('currency')('https://faviconer.net/preloaders/3/Chasing%20arrows.gif')(HocChild);
