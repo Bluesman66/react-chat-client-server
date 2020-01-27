@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-const hocLoader = (ChildComponent) => {
-	return class hocLoader extends Component {
+const hocLoader = (propName) => (ChildComponent) => {
+	return class extends Component {
 
 		propIsEmpty = () => {
-			const { currency } = this.props;
+			const prop = this.props[propName];
 
-			if (!Object.keys(currency).length) {
+			if (!prop || (prop.hasOwnProperty('length') && !prop.length) || !Object.keys(prop).length) {
 				return true;
 			}
 			return false;

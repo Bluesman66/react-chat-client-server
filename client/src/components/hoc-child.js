@@ -16,4 +16,4 @@ class HocChild extends Component {
 	}
 }
 
-export default hocLoader(HocChild);
+export default hocLoader('currency')(HocChild);
