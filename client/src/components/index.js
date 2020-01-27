@@ -1,3 +1,7 @@
-import HocExample from './hoc-example';
+import App from './app';
+import ChatWrapper from './chat-wrapper';
 
-export default HocExample;
+export default App;
+export {
+	ChatWrapper
+}

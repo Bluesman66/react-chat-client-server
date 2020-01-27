@@ -1,21 +1,20 @@
 import { hot } from 'react-hot-loader/root';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { PeopleList, MessagesList } from 'containers';
+import ChatWrapper from './chat-wrapper';
 import store from 'store';
 
 window.store = store;
-class Chat extends Component {
+class App extends Component {
 	render() {
 		return (
 			<Provider store={store}>
 				<div class="container clearfix">
-					<PeopleList />
-					<MessagesList />
+					<ChatWrapper />
 				</div>
 			</Provider>
 		);
 	}
 }
 
-export default hot(Chat);
+export default hot(App);
