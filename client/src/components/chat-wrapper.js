@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { PeopleList, MessagesList } from 'containers';
+import authHOC from './authHOC';
 
-export default class ChatWrapper extends Component {
+class ChatWrapper extends Component {
 	render() {
 		return (
 			<div>
@@ -12,3 +13,4 @@ export default class ChatWrapper extends Component {
 	}
 }
 
+export default authHOC(ChatWrapper);

@@ -6,4 +6,6 @@ import ws from 'utils';
 
 window.ws = ws;
 
+localStorage.removeItem('auth');
+
 render(<App />, document.getElementById('root'));
