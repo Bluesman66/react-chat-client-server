@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import ws, { emit } from 'utils';
 
 const authHOC = (ChildComponent) => {
 	return class extends Component {
@@ -14,6 +15,7 @@ const authHOC = (ChildComponent) => {
 			}
 
 			localStorage.setItem('auth', name);
+			emit(name);
 			return true;
 		}
 
