@@ -1,15 +1,9 @@
-const initState = [
-	'Alex',
-	'John',
-	'Paul',
-	'George',
-	'Ringo',
-	'Pit'
-]
-
-const peopleReducer = (state = initState, action) => {
-	if (action.type === 'ADD_NEW_USER') {
-		return state.concat('Alexxx_' + Date.now());
+const peopleReducer = (state = [], action) => {
+	if (action.type === 'CONNECTED_NEW_USER') {
+		return state.concat({
+			id: action.userId,
+			userName: action.userName
+		});
 	}
 
 	return state;

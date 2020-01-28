@@ -11,14 +11,19 @@ colors.sort(function (a, b) { return Math.random() > 0.5; });
 var clients = [];
 
 wss.on('connection', function (ws) {
+	//clients.push(Object.assign(ws, { userId: Date.now() }));
 	clients.push(ws);
 	var userName = false;
 	var userColor = false;
+	var json;
 	ws.on('message', function (msg) {
 		if (!userName) {
 			userName = msg;
 			userColor = colors.shift();
-			ws.send(JSON.stringify({ type: 'color', data: userColor }));
+			json = JSON.stringify({ type: 'connected_new_user', userId: Date.now(), userName });
+			for (var i = 0; i < clients.length; i++) {
+				clients[i].send(json);
+			}
 			console.log(userName + ' login');
 		} else {
 			console.log(userName + ' say: ' + msg);
@@ -28,7 +33,7 @@ wss.on('connection', function (ws) {
 				author: userName,
 				color: userColor
 			};
-			var json = JSON.stringify({ type: 'message', data: obj });
+			json = JSON.stringify({ type: 'message', data: obj });
 			for (var i = 0; i < clients.length; i++) {
 				clients[i].send(json);
 			}

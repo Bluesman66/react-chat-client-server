@@ -1,6 +1,11 @@
+import { connectedNewUser } from 'actions';
+import store from 'store';
+
 let ws, emit;
 
 ((wsUrl) => {
+	const { dispatch } = store;
+
 	ws = new WebSocket(wsUrl);
 
 	ws.onopen = () => {
@@ -8,7 +13,18 @@ let ws, emit;
 	}
 
 	ws.onmessage = (msg) => {
-		console.log(msg.data);
+		const msgObj = JSON.parse(msg.data);
+
+		console.log('WS Message: ', msgObj);
+
+		switch (msgObj.type) {
+			case 'connected_new_user':
+				const { userId, userName } = msgObj;
+				dispatch(connectedNewUser(userId, userName));
+				break;
+			default:
+				break;
+		}
 	}
 
 	let countReconnect = 0;

@@ -12,11 +12,12 @@ class PeopleList extends Component {
 
 				<ul class="list">
 					{this.props.people.map(person => {
+						console.log('person: ', person)
 						return (
-							<li key={person} class="clearfix">
+							<li key={person.id} class="clearfix">
 								<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg" alt="avatar" />
 								<div class="about">
-									<div class="name">{person}</div>
+									<div class="name">{person.userName}</div>
 									<div class="status">
 										<i class="fa fa-circle online"></i> online
 									</div>
