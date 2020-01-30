@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { ChatHeader, ChatControl, MessageItem } from 'components';
 
-export default class MessagesList extends Component {
+class MessagesList extends Component {
 	render() {
 		return (
 			<div class="chat">
 				<ChatHeader />
+
 				<div class="chat-history">
 					<ul>
-						<MessageItem />
+						{this.props.messages.map(msg => {
+							return (
+								<MessageItem key={msg.time} {...msg} />
+							)
+						})}
 					</ul>
 				</div>
 
@@ -17,3 +23,17 @@ export default class MessagesList extends Component {
 		)
 	}
 }
+
+const mapStateToProps = (state) => {
+	return {
+		messages: state.messagesReducer
+	};
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		dispatch
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessagesList);

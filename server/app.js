@@ -30,7 +30,8 @@ wss.on('connection', function (ws) {
 				userId: ws.userId,
 				text: msg,
 				author: userName,
-				time: (new Date()).getTime()
+				time: (new Date()).getTime(),
+				color: userColor
 			};
 			json = JSON.stringify({ type: 'message', data: obj });
 			for (var i = 0; i < clients.length; i++) {

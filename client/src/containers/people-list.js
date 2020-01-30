@@ -10,7 +10,7 @@ class PeopleList extends Component {
 				<ul class="list">
 					{this.props.people.map(user => {
 						return (
-							<UserItem key={user.id} userName={user.userName}/>
+							<UserItem key={user.userId} userName={user.userName}/>
 						)
 					})}
 				</ul>
@@ -31,4 +31,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PeopleList); 
+export default connect(mapStateToProps, mapDispatchToProps)(PeopleList);

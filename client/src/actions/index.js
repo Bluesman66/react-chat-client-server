@@ -15,12 +15,13 @@ export const disconnectedUser = ({ userId }) => {
 	}
 }
 
-export const receiveNewMessage = ({ data: { userId, text, author, time } }) => {
+export const receiveNewMessage = ({ data: { userId, text, author, time, color } }) => {
 	return {
 		type: constants.RECEIVE_NEW_MESSAGE,
 		userId,
 		text,
 		author,
-		time
+		time,
+		color
 	}
 }
