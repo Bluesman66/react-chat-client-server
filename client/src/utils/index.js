@@ -1,5 +1,4 @@
-import ws from './ws';
-import { emit } from './ws';
+import ws, { emit }  from './ws';
 
 export default ws;
 export {

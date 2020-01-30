@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ws, { emit } from 'utils';
+import { emit } from 'utils';
 
 const authHOC = (ChildComponent) => {
 	return class extends Component {

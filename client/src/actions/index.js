@@ -7,3 +7,10 @@ export const connectedNewUser = (userId, userName) => {
 		userName
 	}
 }
+
+export const disconnectedUser = (userId) => {
+	return {
+		type: constants.DISCONNECTED_USER,
+		userId
+	}
+}

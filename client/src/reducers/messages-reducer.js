@@ -1,4 +1,4 @@
-const messagesReducer = (state = {}, action) => {
+const messagesReducer = (state = {}/*, action*/) => {
 	return state;
 }
 
