@@ -4,7 +4,7 @@ import ws, { emit } from 'utils';
 const authHOC = (ChildComponent) => {
 	return class extends Component {
 		auth = () => {
-			if (localStorage.getItem('auth', name)) {
+			if (localStorage.getItem('auth')) {
 				return true;
 			}
 
@@ -21,7 +21,7 @@ const authHOC = (ChildComponent) => {
 
 		noName = () => {
 			return (
-				<div class='noname-wrap'>
+				<div class="noname-wrap">
 					<p>You didn't enter the name:</p>
 					<button onClick={() => { location.reload() }}>Try again?</button>
 				</div>

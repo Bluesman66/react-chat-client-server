@@ -3,5 +3,5 @@ import { emit } from './ws';
 
 export default ws;
 export {
-	emit 
+	emit
 }

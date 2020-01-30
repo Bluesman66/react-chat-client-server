@@ -18,12 +18,12 @@ let ws, emit;
 		console.log('WS Message: ', msgObj);
 
 		switch (msgObj.type) {
-			case 'connected_new_user':
-				const { userId, userName } = msgObj;
-				dispatch(connectedNewUser(userId, userName));
-				break;
-			default:
-				break;
+		case 'connected_new_user':
+			const { userId, userName } = msgObj;
+			dispatch(connectedNewUser(userId, userName));
+			break;
+		default:
+			break;
 		}
 	}
 

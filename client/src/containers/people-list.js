@@ -9,7 +9,6 @@ class PeopleList extends Component {
 				<PeopleSearch />
 				<ul class="list">
 					{this.props.people.map(user => {
-						console.log('user: ', user)
 						return (
 							<UserItem key={user.id} userName={user.userName}/>
 						)
