@@ -27,10 +27,10 @@ wss.on('connection', function (ws) {
 		} else {
 			console.log(userName + ' say: ' + msg);
 			var obj = {
-				time: (new Date()).getTime(),
+				userId: ws.userId,
 				text: msg,
 				author: userName,
-				color: userColor
+				time: (new Date()).getTime()
 			};
 			json = JSON.stringify({ type: 'message', data: obj });
 			for (var i = 0; i < clients.length; i++) {

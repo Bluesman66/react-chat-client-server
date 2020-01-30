@@ -1,4 +1,4 @@
-import { connectedNewUser, disconnectedUser } from 'actions';
+import { connectedNewUser, disconnectedUser, receiveNewMessage } from 'actions';
 import store from 'store';
 
 let ws, emit;
@@ -19,11 +19,13 @@ let ws, emit;
 
 		switch (msgObj.type) {
 			case 'connected_new_user':
-				const { userId, userName } = msgObj;
-				dispatch(connectedNewUser(userId, userName));
+				dispatch(connectedNewUser(msgObj));
 				break;
 			case 'disconnected_user':
-				dispatch(disconnectedUser(msgObj.userId))
+				dispatch(disconnectedUser(msgObj))
+				break;
+			case 'message':
+				dispatch(receiveNewMessage(msgObj));
 				break;
 			default:
 				break;
